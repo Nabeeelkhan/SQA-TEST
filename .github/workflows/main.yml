@@ -2,23 +2,23 @@ name: POSTMAN TEST CASES
 
 on: [push]
 
-  jobs:
-    runs-on : ubuntu-latest
+jobs:
+  runs-on : ubuntu-latest
 
-    steps:
-      -name: checkout repository
-       uses: actions/checkout@v4
+  steps:
+    -name: checkout repository
+     uses: actions/checkout@v4
 
-      -name: setup nodejs
-       uses: setup-node@v4
-       with:
-          node-version : '18'
+    -name: setup nodejs
+     uses: setup-node@v4
+     with:
+        node-version : '18'
 
-      -name: install newman
-       run: npm install -g newman
+    -name: install newman
+     run: npm install -g newman
 
-      -name : run postman test
-       run : newman run Books.postman_collection.json -e test.postman-environment.json
+    -name : run postman test
+     run : newman run Books.postman_collection.json -e test.postman-environment.json
 
       
       
